@@ -44,6 +44,3 @@ The demo is always in mock mode. The GitHub Pages workflow publishes `dist/` aft
 
 React, JavaScript, Vite, Tailwind CSS, and ExcelJS. The full project also uses Netlify Functions and Supabase.
 
-## Resume bullet
-
-Built a multilingual React inventory and order management interface for an ice cream shop and factory, with role-based dashboards, stock workflows, reporting exports, and an interactive mock-data demo for portfolio review.

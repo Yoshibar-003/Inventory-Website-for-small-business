@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === THEME START === */
+/*
+ * Palette: warm cream and ink black drawn from the 1213 brand mark, with a semantic set
+ * (amber / steel / blue / green / red) kept clear of the brand hue so a status
+ * never reads as branding and branding never reads as a warning.
+ *
+ * Three theme states are covered on purpose:
+ *   :root                                        -> light (also the un-stamped default)
+ *   @media (prefers-color-scheme: dark) :root:not([data-theme="light"]) -> system dark
+ *   :root[data-theme="dark"]                     -> explicit dark
+ */
+:root {
+  --c-page: 250 247 232;
+  --c-surface: 255 253 244;
+  --c-surface-2: 242 237 218;
+  --c-line: 232 225 198;
+  --c-line-2: 207 198 165;
+  --c-ink: 16 16 14;
+  --c-muted: 103 98 78;
+
+  --c-brand: 18 18 16;
+  --c-brand-strong: 0 0 0;
+  --c-brand-tint: 235 229 205;
+  --c-on-brand: 255 252 238;
+
+  --c-amber: 146 97 10;
+  --c-amber-tint: 251 240 218;
+  --c-steel: 76 90 110;
+  --c-steel-tint: 234 238 243;
+  --c-blue: 10 106 175;
+  --c-blue-tint: 226 240 251;
+  --c-green: 22 114 76;
+  --c-green-tint: 225 243 233;
+  --c-red: 177 42 34;
+  --c-red-tint: 251 232 230;
+
+  --c-scrim: 16 16 14;
+  --c-shadow: 60 54 32;
+
+  --c-cone: 231 183 120;
+  --c-cone-line: 201 149 79;
+  --c-scoop-2: 127 209 190;
+  --c-scoop-3: 243 179 61;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --c-page: 18 18 16;
+    --c-surface: 27 27 23;
+    --c-surface-2: 38 37 31;
+    --c-line: 52 51 42;
+    --c-line-2: 76 73 58;
+    --c-ink: 250 247 232;
+    --c-muted: 184 178 151;
+
+    --c-brand: 250 247 232;
+    --c-brand-strong: 255 253 244;
+    --c-brand-tint: 52 50 40;
+    --c-on-brand: 16 16 14;
+
+    --c-amber: 232 180 92;
+    --c-amber-tint: 51 41 26;
+    --c-steel: 168 184 204;
+    --c-steel-tint: 35 43 54;
+    --c-blue: 107 182 238;
+    --c-blue-tint: 22 40 58;
+    --c-green: 92 200 148;
+    --c-green-tint: 21 44 34;
+    --c-red: 240 130 122;
+    --c-red-tint: 52 32 31;
+
+    --c-scrim: 8 5 11;
+    --c-shadow: 0 0 0;
+
+    --c-cone: 185 138 80;
+    --c-cone-line: 142 103 51;
+    --c-scoop-2: 88 168 148;
+    --c-scoop-3: 201 143 46;
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --c-page: 18 18 16;
+  --c-surface: 27 27 23;
+  --c-surface-2: 38 37 31;
+  --c-line: 52 51 42;
+  --c-line-2: 76 73 58;
+  --c-ink: 250 247 232;
+  --c-muted: 184 178 151;
+
+  --c-brand: 250 247 232;
+  --c-brand-strong: 255 253 244;
+  --c-brand-tint: 52 50 40;
+  --c-on-brand: 16 16 14;
+
+  --c-amber: 232 180 92;
+  --c-amber-tint: 51 41 26;
+  --c-steel: 168 184 204;
+  --c-steel-tint: 35 43 54;
+  --c-blue: 107 182 238;
+  --c-blue-tint: 22 40 58;
+  --c-green: 92 200 148;
+  --c-green-tint: 21 44 34;
+  --c-red: 240 130 122;
+  --c-red-tint: 52 32 31;
+
+  --c-scrim: 8 5 11;
+  --c-shadow: 0 0 0;
+
+  --c-cone: 185 138 80;
+  --c-cone-line: 142 103 51;
+  --c-scoop-2: 88 168 148;
+  --c-scoop-3: 201 143 46;
+
+  color-scheme: dark;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  overflow-y: auto;
+  background: rgb(var(--c-page));
+  color: rgb(var(--c-ink));
+  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Thai ascenders and tone marks need a little more room than the Latin default. */
+html[lang="th"] body {
+  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.7;
+}
+
+html[lang="th"] .font-display {
+  font-family: "IBM Plex Sans Thai", "IBM Plex Sans", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
+html[lang="lo"] body {
+  font-family: "Phetsarath", "IBM Plex Sans Thai", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  line-height: 1.75;
+}
+
+html[lang="lo"] .font-display {
+  font-family: "Phetsarath", "IBM Plex Sans Thai", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.focus-ring:focus-visible,
+.focus-ring-inset:focus {
+  outline: 2px solid rgb(var(--c-brand));
+  outline-offset: 2px;
+}
+.focus-ring-inset:focus {
+  outline-offset: -1px;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+::selection {
+  background: rgb(var(--c-brand) / 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* === THEME END === */
+
+.modal-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
